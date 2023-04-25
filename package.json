@@ -1,0 +1,19 @@
+{
+  "name": "autompostman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "api":"newman run ./Newman/Collection/automPostman.postman_collection.json -e ./Newman/Environment/GlobalVar.postman_environment.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjga01/automPostman.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cjga01/automPostman/issues"
+  },
+  "homepage": "https://github.com/cjga01/automPostman#readme"
+}

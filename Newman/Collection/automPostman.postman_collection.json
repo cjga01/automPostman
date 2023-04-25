@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "d8976277-922f-447b-936c-76548d6489d0",
+		"name": "automPostman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "all-users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GET: All users\", function () {",
+									"  pm.response.to.have.status(200);",
+									"  pm.expect(pm.response.json().length).to.equal(10)",
+									"  pm.expect(pm.response.json()).not.to.be.null",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/users/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GET: Specific user register\", function () {",
+									"  pm.response.to.have.status(200);",
+									"  pm.expect(pm.response.json()).not.to.be.null",
+									"  pm.expect(pm.response.json().id).to.equal(1)",
+									"  pm.expect(pm.response.json().name).to.equal('Leanne Graham')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/users/1",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"POST: Create new user\", function () {",
+									"  pm.response.to.have.status(201);",
+									"  pm.expect(pm.response.json()).not.to.be.null",
+									"  pm.expect(pm.response.json().id).to.equal(11)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/users?name=CarlosG",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "CarlosG"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific-user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"DEL: Delete user\", function () {",
+									"  pm.response.to.have.status(200);",
+									"  pm.expect(pm.response.text()).to.equal('{}')",
+									"});",
+									"",
+									"",
+									"",
+									"   ",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/users/11",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"users",
+								"11"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "CarlosG",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "photos",
+			"item": [
+				{
+					"name": "all-photos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GET: All photos\", function () {",
+									"  pm.response.to.have.status(200);",
+									"  pm.expect(pm.response.json()).not.to.be.null",
+									"  pm.expect(pm.response.json().length).to.equal(5000)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/photos",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific-photo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GET: Specific photo register\", function () {",
+									"  pm.response.to.have.status(200);",
+									"  pm.expect(pm.response.json()).not.to.be.null",
+									"  pm.expect(pm.response.json().id).to.equal(2)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/photos/2",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"photos",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "photos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"POST: Create new photo register\", function () {",
+									"  pm.response.to.have.status(201);",
+									"  pm.expect(pm.response.json()).not.to.be.null",
+									"  pm.expect(pm.response.json().id).to.equal(5001)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/photos?title=CarlosG",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"photos"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "CarlosG"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific-photo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"DEL: Delete photo\", function () {",
+									"  pm.response.to.have.status(200);",
+									"  pm.expect(pm.response.text()).to.equal('{}')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/photos/5001",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"photos",
+								"5001"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "CarlosG",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "albumId",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "albums",
+			"item": [
+				{
+					"name": "all-albums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GET: All albums\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/albums",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"albums"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific-album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"GET: Specific album register\", function () {",
+									"  pm.response.to.have.status(200);",
+									"   pm.expect(pm.response.json()).not.to.be.null",
+									"    pm.expect(pm.response.json().id).to.equal(3)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/albums/3",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"albums",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "albums",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"POST: Create new album\", function () {",
+									"    pm.response.to.have.status(201);",
+									"    pm.expect(pm.response.json()).not.to.be.null",
+									"    pm.expect(pm.response.json().id).to.equal(101)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/albums?title=CarlosG",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"albums"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "CarlosG"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "specific-album",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"DEL: Delete album\", function () {",
+									"  pm.response.to.have.status(200);",
+									"  pm.expect(pm.response.text()).to.equal('{}')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/albums/101",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"albums",
+								"101"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "CarlosG",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
